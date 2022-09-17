@@ -42,5 +42,5 @@ jobs:
         host: ${{ secrets.host }}
         username: ${{ secrets.user }}
         key: ${{ secrets.ssh_private_key }}
-        script: echo &{{ secrets.env }} >> /home/go-simple-server/.env
+        script: echo ${{ secrets.env }} >> /home/go-simple-server/.env
     
