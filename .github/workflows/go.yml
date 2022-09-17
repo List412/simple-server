@@ -34,5 +34,13 @@ jobs:
         username: ${{ secrets.user }}
         key: ${{ secrets.ssh_private_key }}
         source: "server"
-        target: "/home/go-simple-server/server"
+        target: "/home/go-simple-server/"
+
+    - name: add env to server
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.host }}
+        username: ${{ secrets.user }}
+        key: ${{ secrets.ssh_private_key }}
+        script: echo &{{ secrets.env }} >> /home/go-simple-server/.env
     
