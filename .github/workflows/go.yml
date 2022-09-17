@@ -19,7 +19,7 @@ jobs:
         go-version: 1.18
 
     - name: Build
-      run: go build -o server cmd/server
+      run: go build -o server cmd/server/main.go
 
     - name: Test
       run: go test -v ./...
