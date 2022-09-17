@@ -14,5 +14,5 @@
 # Dependency directories
  vendor/
 
- .idea/
  .env
+/.idea/
