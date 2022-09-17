@@ -49,7 +49,7 @@ jobs:
       with:
         host: ${{ secrets.host }}
         username: ${{ secrets.user }}
-        key: ${{ secrets.serverKey }}
+        key: ${{ secrets.ssh_private_key }}
         script:
           systemctl restart simple-server.service &&
           systemctl status simple-server
