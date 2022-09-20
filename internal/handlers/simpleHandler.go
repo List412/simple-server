@@ -15,16 +15,12 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/json")
 
-	body, err := json.Marshal(&response)
+	err = json.NewEncoder(w).Encode(&response)
 	if err != nil {
+		w.Write(http.StatusInternalServerError)
 		w.WriteHeader(http.StatusInternalServerError)
 		_, _ = w.Write([]byte(err.Error()))
 	}
-	_, err = w.Write(body)
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		_, _ = w.Write([]byte(err.Error()))
-	}
-
+	
 	w.WriteHeader(http.StatusOK)
 }
