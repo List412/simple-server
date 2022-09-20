@@ -17,7 +17,6 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 
 	err := json.NewEncoder(w).Encode(&response)
 	if err != nil {
-		w.Write(http.StatusInternalServerError)
 		w.WriteHeader(http.StatusInternalServerError)
 		_, _ = w.Write([]byte(err.Error()))
 	}
